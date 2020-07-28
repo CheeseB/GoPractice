@@ -1,0 +1,20 @@
+package main
+
+import (
+  "fmt"
+  "runtime"
+)
+
+func main() {
+  fmt.Print("Go runs on ")
+  switch os := runtime.GOOS; os {
+  case "darwin":
+    fmt.Println("OS X.")
+    //each case doesn't need 'break'
+  case "linux":
+    fmt.Println("Linux.")
+    fallthrough //execute next cases too
+  default:
+    fmt.Printf("%s.\n", os)
+  }
+}
